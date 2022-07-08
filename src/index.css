@@ -1,5 +1,8 @@
+:root{
+  --var-clr-primary: #6603FC;
+}
+
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +10,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,body{
+  overflow-x: hidden !important;
 }
+
+*,*::after,*::before{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+

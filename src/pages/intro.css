@@ -1,0 +1,176 @@
+.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    justify-content: center;
+}
+
+.btn{
+    border: none;
+    background-color: var(--var-clr-primary);
+    padding: 0.7rem 1.2rem;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    height: 50px;
+    width:120px;
+    align-self: center;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 550;
+    box-shadow: 7px 4px 34px 4px rgba(0,0,0,0.27);
+-webkit-box-shadow: 7px 4px 34px 4px rgba(0,0,0,0.27);
+-moz-box-shadow: 7px 4px 34px 4px rgba(0,0,0,0.27);
+transition: all 0.3s ease-in-out;
+margin-right: 2rem;
+
+}
+
+.btn:hover{
+    background-color: #3800af;
+}
+
+.blur {
+    position: absolute;
+    width: 22rem;
+    height: 14rem;
+    border-radius: 50%;
+    background: #edd0ff;
+    filter: blur(212px);
+    z-index: -9;
+    top: -18%;
+    left: 50%;
+    filter: blur(72px);
+  }
+.blur-2{
+    position: absolute;
+    width: 22rem;
+    height: 14rem;
+    border-radius: 50%;
+    background: #ffff00;
+    z-index: -9;
+    top: 80%;
+    left: 68%;
+    filter: blur(212px);
+  }
+
+.blur-3 {
+    position: absolute;
+    width: 22rem;
+    height: 14rem;
+    border-radius: 50%;
+    background: #edd0ff;
+    filter: blur(212px);
+    z-index: -9;
+    top: 40%;
+    left: 5%;
+    filter: blur(72px);
+  }
+
+  a{
+    text-decoration: none;
+    color: white;
+  }
+
+  .text{
+    color: #000;
+    font-size: 2.8rem;
+    text-align: center;
+    font-weight: 950;
+    display: grid;
+    place-items: center;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+
+
+  }
+
+  h2{
+    padding: 10px;
+    position: relative;
+    -webkit-text-fill-color: #fff;
+    -webkit-text-stroke: 0.7px #333;
+
+  }
+
+
+  h2::before{
+    content: "Don't have an account yet?";
+    white-space: nowrap;
+    position: absolute;
+    z-index: 222;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    -webkit-text-stroke: 0px #333;
+    -webkit-text-fill-color: var(--var-clr-primary);
+    width: 0%;
+    overflow: hidden;
+    transition: .6s;
+  }
+
+  h2:hover::before{
+    width: 100%;
+  }
+
+  .signup{
+    font-size: 2.8rem !important;
+    color: #000 !important;
+    z-index: 22;
+    font-weight: 1150 !important;
+  }
+
+  .signup:hover{
+    color: #3800af !important;
+  }
+
+  
+  @media screen and (max-width: 964px) {
+    .text{
+      font-size: 2rem;
+      text-align: center;
+      font-weight: 950;
+      display: grid;
+      place-items: center;
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+  
+  
+    }
+  
+    h2{
+      padding: 10px;
+      position: relative;
+      -webkit-text-fill-color: #000;
+      -webkit-text-stroke: 0px;
+  
+    }
+  
+  
+    h2::before{
+      content: "";
+
+    }
+  
+    h2:hover::before{
+      width: 0%;
+    }
+    .signup{
+      color: #3800af !important;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .btn{
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+        height: 40px;
+        width:90px;
+        align-self: center;
+        cursor: pointer;
+        text-align: center;
+        font-weight: 550;
+        margin-right: 1rem;
+
+    }
+  }
