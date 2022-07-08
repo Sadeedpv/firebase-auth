@@ -1,6 +1,7 @@
 import React from 'react'
 import {HiFire} from 'react-icons/hi'
 import '../pages/intro.css'
+import {Link} from 'react-router-dom'
 
 function Header() {
   return (
@@ -24,8 +25,8 @@ function Header() {
             alignItems: 'center',
             padding:'2rem',
          }}>
-            <a href='/signup'><button className='btn'>Sign-up</button></a>
-            <a href='/login'><button className='btn'>Login</button></a>
+            <Link to='/signup'><button className='btn'>Sign-up</button></Link>
+            <Link to='/login'><button className='btn'>Login</button></Link>
         </div>
     </div>
   )

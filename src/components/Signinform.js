@@ -1,6 +1,7 @@
 import React from 'react'
 import '../pages/signin.css'
 import {HiOutlineScale} from 'react-icons/hi'
+import {Link} from 'react-router-dom'
 
 function Signinform() {
   return (
@@ -28,7 +29,7 @@ function Signinform() {
           <button className='btn btn-signin'>Sign up</button>
         </div>
         <div className='form-footer'>
-          Already have an account? <a href='/login' className='form-link'>Login</a>
+          Already have an account? <Link to='/login' className='form-link'>Login</Link>
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {HiLightningBolt} from 'react-icons/hi'
 import '../pages/signin.css'
+import {Link} from 'react-router-dom'
 
 
 function Loginform() {
@@ -33,7 +34,7 @@ function Loginform() {
         <button className='btn btn-signin'>Login</button>
       </div>
       <div className='form-footer'>
-        Don't have an account? <a href='/signup' className='form-link'>Sign-up</a>
+        Don't have an account? <Link to='/signup' className='form-link'>Sign-up</Link>
       </div>
     </div>
   </div>

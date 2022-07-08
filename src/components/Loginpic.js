@@ -7,8 +7,8 @@ function Loginpic() {
   return (
     <div className='signinpic'>
         <img src={login} alt='Login' />
-            <div className='blur'></div>
-            <div className='blur-2'></div>
+        <div className='blur'></div>
+        <div className='blur-2'></div>
     </div>
   )
 }
