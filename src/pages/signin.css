@@ -129,6 +129,11 @@ input[type=checkbox] {
     color: #6603FC !important;
 }
 
+.invalid-feedback{
+    color: red;
+    padding-bottom: 12px;
+    width: var(--input-width);
+}
 @media screen and (min-width: 828px){
     .signin-grid{
         grid-template-columns: 1fr 1fr;
