@@ -4,17 +4,10 @@ import {HiOutlineScale} from 'react-icons/hi'
 import {Link} from 'react-router-dom'
 import * as Yup from 'yup'
 import {Formik, Field, ErrorMessage} from 'formik'
-import {auth} from '../firebaseConfig'
+import {auth, db} from '../firebaseConfig'
 
 
 function Signinform({user}) {
-
-  auth.onAuthStateChanged(user => {
-    user.sendEmailVerification().then(() =>{
-      alert(`An Email has been sent to ${user.email} to verify your account. Please check your spam folder if you don't see it in the inbox.`)
-    })
-  })
-
   const [error, seterror] = useState('');
   
   const Signinschema = Yup.object().shape({
@@ -43,6 +36,16 @@ function Signinform({user}) {
           auth.createUserWithEmailAndPassword(values.email, values.password)
           .then(() =>{
             alert('Signup Successful')
+            user.sendEmailVerification().then(() =>{
+              alert(`An Email has been sent to ${user.email} to verify your account. Please check your spam folder if you don't see it in the inbox.`)
+              db.collection("UserDetails").doc(user.uid).set({
+                EmailId: user.email,
+                Name:'Not given',
+                Age:'Not given',
+                Profession:'Unknown',
+                imgUrl:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+              })
+            })
           })
           .catch(error => {
             seterror(error.message)

@@ -1,6 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { auth, db } from '../firebaseConfig';
 
-function Updateform() {
+function Updateform({Data}) {
+
+  const [Profession, setProfession] = useState(Data?Data.Profession:'');
+  const [Age, setAge] = useState(Data?Data.Age:'');
+  const [Name, setName] = useState(Data?Data.Name:'');
+
+  const handleSubmit = async () =>{
+    await db.collection("UserDetails").doc(auth.currentUser.uid).update({
+      Profession: Profession,
+      Age: Age,
+      Name: Name,
+    }).then(() =>{
+      alert(`Updated Successfully`)
+    })
+  }
+
   return (
 
     <div className='form' style={{
@@ -19,11 +35,26 @@ function Updateform() {
       </div>
       <div className='input'>
         <div className='label'>Enter you Username</div>
-        <input type='text' placeholder='' className='inputs' />
+        <input type='text' placeholder='' className='inputs' 
+        value={Name}
+        onChange={(e)=>{
+          setName(e.target.value)
+        }}
+        />
         <div className='label'>Enter Age</div>
-        <input type='text' placeholder='' className='inputs' />
+        <input type='text' placeholder='' className='inputs' 
+        value={Age}
+        onChange={(e)=>{
+          setAge(e.target.value)
+        }}
+        />
         <div className='label'>Enter your Profession</div>
-        <input type='text' placeholder='' className='inputs' />
+        <input type='text' placeholder='' className='inputs'
+        value={Profession}
+        onChange={(e)=>{
+          setProfession(e.target.value)
+        }}
+        />
       </div>
       <div className='buttons'>
         <button className='btn btn-signin' style={{
@@ -31,7 +62,7 @@ function Updateform() {
             margin:0,
             padding:0,
             marginTop:'1em'
-        }}>Update</button>
+        }} onClick={handleSubmit}>Update</button>
       </div>
     </div>
   )

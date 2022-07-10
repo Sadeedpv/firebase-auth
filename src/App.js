@@ -12,7 +12,10 @@ import Reset from "./pages/Reset";
 
 function App() {
   const [user] = useAuthState(auth);
-  console.log(user)
+  if (user){
+  console.log(user, user.uid)
+    
+  }
   return (
     <>
       <Routes>
