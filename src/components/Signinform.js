@@ -10,22 +10,6 @@ import {auth, db} from '../firebaseConfig'
 function Signinform({user}) {
   const [error, seterror] = useState('');
 
-  auth.onAuthStateChanged(user => {
-    // Add default database values
-    if (!user) {
-    db.collection("UserDetails").doc(user.uid).set({
-      EmailId: user.email,
-      Name:'Not given',
-      Age:'Not given',
-      Profession:'Unknown',
-      imgUrl:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
-    }).then(() =>{
-      alert(`User ${user.email} created successfully`)
-    })
-  }
-
-  })
-
 
   
   const Signinschema = Yup.object().shape({
@@ -53,7 +37,15 @@ function Signinform({user}) {
         onSubmit={(values)=>{
           auth.createUserWithEmailAndPassword(values.email, values.password)
           .then((response) =>{
-            seterror('')
+            db.collection("UserDetails").doc(user.uid).set({
+              EmailId: user.email,
+              Name:'Not given',
+              Age:'Not given',
+              Profession:'Unknown',
+              imgUrl:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+            }).then(() =>{
+              alert(`User ${user.email} created successfully`)
+            })
           })
           .catch(error => {
             seterror(error.message)
