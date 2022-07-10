@@ -9,6 +9,24 @@ import {auth, db} from '../firebaseConfig'
 
 function Signinform({user}) {
   const [error, seterror] = useState('');
+
+  auth.onAuthStateChanged(user => {
+    // Add default database values
+    if (!user) {
+    db.collection("UserDetails").doc(user.uid).set({
+      EmailId: user.email,
+      Name:'Not given',
+      Age:'Not given',
+      Profession:'Unknown',
+      imgUrl:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+    }).then(() =>{
+      alert(`User ${user.email} created successfully`)
+    })
+  }
+
+  })
+
+
   
   const Signinschema = Yup.object().shape({
     email: Yup.string().email('Please provide a valid Email').required('Email is required'),
@@ -34,18 +52,8 @@ function Signinform({user}) {
         validationSchema={Signinschema}
         onSubmit={(values)=>{
           auth.createUserWithEmailAndPassword(values.email, values.password)
-          .then(() =>{
-            alert('Signup Successful')
-            user.sendEmailVerification().then(() =>{
-              alert(`An Email has been sent to ${user.email} to verify your account. Please check your spam folder if you don't see it in the inbox.`)
-              db.collection("UserDetails").doc(user.uid).set({
-                EmailId: user.email,
-                Name:'Not given',
-                Age:'Not given',
-                Profession:'Unknown',
-                imgUrl:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
-              })
-            })
+          .then((response) =>{
+            seterror('')
           })
           .catch(error => {
             seterror(error.message)

@@ -6,7 +6,7 @@ function Card({Data}) {
   return (
     <div className='card-grid'>
         <div className='card-img'>
-            <img alt='Profile photo' src={Data?Data.imgUrl:img} className='img-card'/>
+            <img alt='Profile pic' src={Data?Data.imgUrl:img} className='img-card'/>
         </div>
         <div className='card-text'>
             You are currently logged in as <span className='user-name'>{Data?.EmailId}</span>

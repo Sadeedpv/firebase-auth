@@ -36,7 +36,7 @@ function Reset() {
                 alert(error.message)
             })
         }}>Send</button>
-        <Link to='/login'><button className='btn'>Go to Login</button></Link>
+        <Link to='/login'><button className='btn'>Login</button></Link>
         </div>
     </div>
   )
