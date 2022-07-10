@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {  useState } from 'react'
 import '../pages/signin.css'
 import {HiOutlineScale} from 'react-icons/hi'
 import {Link} from 'react-router-dom'
@@ -6,8 +6,17 @@ import * as Yup from 'yup'
 import {Formik, Field, ErrorMessage} from 'formik'
 import {auth} from '../firebaseConfig'
 
-function Signinform() {
 
+function Signinform({user}) {
+
+  auth.onAuthStateChanged(user => {
+    user.sendEmailVerification().then(() =>{
+      alert(`An Email has been sent to ${user.email} to verify your account. Please check your spam folder if you don't see it in the inbox.`)
+    })
+  })
+
+  const [error, seterror] = useState('');
+  
   const Signinschema = Yup.object().shape({
     email: Yup.string().email('Please provide a valid Email').required('Email is required'),
     password: Yup.string().min(8, "Minimum 8 characters are required").matches(
@@ -32,11 +41,11 @@ function Signinform() {
         validationSchema={Signinschema}
         onSubmit={(values)=>{
           auth.createUserWithEmailAndPassword(values.email, values.password)
-          .then((user) =>{
-            console.log(user)
+          .then(() =>{
+            alert('Signup Successful')
           })
           .catch(error => {
-            console.log(error)
+            seterror(error.message)
           })
         }}
         validator={() => ({})}
@@ -44,7 +53,7 @@ function Signinform() {
           {({handleSubmit, isSubmitting}) => (
                       <form>
                       <div className='input'>
-              
+                        {error && <div className='invalid-feedback'>{error}</div>}              
                         <div className='label'>Enter you Email-id *</div>
                         <Field type='email' name='email' placeholder='' className='inputs' />
                         <ErrorMessage

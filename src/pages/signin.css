@@ -108,6 +108,9 @@ input[type=checkbox] {
 .p-check{
     padding-left: 5px;
 }
+.p-check:hover{
+    cursor: pointer;
+}
 .btn-signin{
     width:var(--input-width);
     font-size: 1.2rem;
@@ -134,6 +137,11 @@ input[type=checkbox] {
     padding-bottom: 12px;
     width: var(--input-width);
 }
+
+.error{
+    color:red !important
+}
+
 @media screen and (min-width: 828px){
     .signin-grid{
         grid-template-columns: 1fr 1fr;

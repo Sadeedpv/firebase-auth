@@ -3,10 +3,10 @@ import Signinform from '../components/Signinform';
 import Signinpic from '../components/Signinpic';
 import './signin.css';
 
-function Signin() {
+function Signin({user}) {
   return (
     <div className='signin-grid'>
-      <Signinform />
+      <Signinform user={user}/>
       <Signinpic />            
     </div>
   )

@@ -3,7 +3,7 @@ import {HiFire} from 'react-icons/hi'
 import '../pages/intro.css'
 import {Link} from 'react-router-dom'
 
-function Header() {
+function Header({user}) {
   return (
     <div style={{
         display: 'flex',

@@ -1,0 +1,82 @@
+.details{
+    display: grid;
+    place-items: center;
+}
+
+.user-details{
+    margin-top: 3.2em;
+    margin-bottom: 1.8em;
+    font-size: 2rem;
+}
+
+.button-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+}
+
+.card-grid{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border:4px solid salmon;
+    margin: 0.5em 2em 0.5em 2em;
+    height: 25em;
+    max-width: 23em;
+}
+
+.card-img{
+    padding:10px;
+}
+.img-card{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.card-text{
+    font-size: 1.5rem;
+    margin-top: 1.5em;
+    margin-bottom: .4em;
+    padding: 10px 12px 10px 12px;
+    text-align: center;
+}
+
+.user-name{
+    color: #6603FC;
+    font-weight: 600;
+}
+.card-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18em;
+    text-align: left;
+    opacity: 85%;
+}
+
+.card-info >p{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    width:18em;
+    padding: 5px;
+}
+
+.card-profession{
+    font-size: 1.08rem;
+    font-weight: 600;
+    opacity: 100%;
+    padding: 4px;
+}
+.card-footer{
+    display: flex;
+    width: 18em;
+    margin-top: 2em;
+
+}
