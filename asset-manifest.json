@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/firebase-auth/static/css/main.edb719ce.css",
-    "main.js": "/firebase-auth/static/js/main.fa77a1e6.js",
+    "main.js": "/firebase-auth/static/js/main.a65250cc.js",
     "static/media/signin.png": "/firebase-auth/static/media/signin.91c8004679ab8f154f1f.png",
     "static/media/intro.png": "/firebase-auth/static/media/intro.c25e84c4650b62c49257.png",
     "static/media/error.png": "/firebase-auth/static/media/error.d54e0db65d9db4cad281.png",
     "static/media/login.png": "/firebase-auth/static/media/login.9e47e8abd6f465384c27.png",
     "index.html": "/firebase-auth/index.html",
     "main.edb719ce.css.map": "/firebase-auth/static/css/main.edb719ce.css.map",
-    "main.fa77a1e6.js.map": "/firebase-auth/static/js/main.fa77a1e6.js.map"
+    "main.a65250cc.js.map": "/firebase-auth/static/js/main.a65250cc.js.map"
   },
   "entrypoints": [
     "static/css/main.edb719ce.css",
-    "static/js/main.fa77a1e6.js"
+    "static/js/main.a65250cc.js"
   ]
 }
