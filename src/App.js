@@ -16,8 +16,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Intro user={user}/>} />
-        <Route path="/signup" element={user?<Details />:<Signin user={user} />} />
-        <Route path="/login" element={user?<Details />:<Login />} />
+        <Route path="/signup" element={user?<Details user={user}/>:<Signin user={user} />} />
+        <Route path="/login" element={user?<Details user={user} />:<Login />} />
         <Route path="/login/resetpassword" element={<Reset />}/>
         <Route path="*" element={<Error />} />
       </Routes>

@@ -9,8 +9,6 @@ import {auth, db} from '../firebaseConfig'
 
 function Signinform({user}) {
   const [error, seterror] = useState('');
-
-
   
   const Signinschema = Yup.object().shape({
     email: Yup.string().email('Please provide a valid Email').required('Email is required'),
@@ -35,21 +33,27 @@ function Signinform({user}) {
         initialValues={{email: '', password: ''}}
         validationSchema={Signinschema}
         onSubmit={(values)=>{
-          auth.createUserWithEmailAndPassword(values.email, values.password)
-          .then((response) =>{
-            db.collection("UserDetails").doc(user.uid).set({
-              EmailId: user.email,
-              Name:'Not given',
-              Age:'Not given',
-              Profession:'Unknown',
-              imgUrl:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
-            }).then(() =>{
-              alert(`User ${user.email} created successfully`)
+          try{
+            auth.createUserWithEmailAndPassword(values.email, values.password);
+            auth.onAuthStateChanged(user => {
+              if(user){
+                db.collection("UserDetails").doc(user.uid).set({
+                  EmailId: user.email,
+                  Name:'Not given',
+                  Age:'Not given',
+                  Profession:'Unknown',
+                  imgUrl:'https://cdn-icons-png.flaticon.com/512/149/149071.png',
+                  }).then(() =>{
+                      alert(`User ${user.email} created successfully`)
+                  })
+              }
+
             })
-          })
-          .catch(error => {
-            seterror(error.message)
-          })
+
+          }
+          catch{
+            seterror('Error in creating user');
+          }
         }}
         validator={() => ({})}
         >

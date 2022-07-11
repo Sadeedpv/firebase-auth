@@ -10,11 +10,10 @@ function Details() {
     const [Data, setData] = React.useState(null);
 
     useEffect(() =>{
+
         const unsubscribe = async () =>{
             db.collection("UserDetails").doc(auth.currentUser.uid).onSnapshot(snapshot => {
-                console.log(snapshot.data())
                 setData(snapshot.data())
-
             })
         }
 
