@@ -30,7 +30,7 @@ function Details() {
         <Card Data={Data}/>
         <div className='card-footer'>
         <button className='btn' onClick={() =>{
-            window.scrollTo(0,280)
+            window.scrollTo(0,980)
             setUpdate(!Update);
         }}>Update</button>
         <button className='btn' onClick={() =>{
