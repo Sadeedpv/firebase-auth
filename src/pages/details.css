@@ -24,8 +24,8 @@
     border-radius: 15px;
     border:4px solid salmon;
     margin: 0.5em 2em 0.5em 2em;
-    height: 25em;
-    max-width: 23em;
+    height: 27em;
+    max-width: 25em;
 }
 
 .card-img{
@@ -48,6 +48,7 @@
 .user-name{
     color: #6603FC;
     font-weight: 600;
+    padding: 0em 2rem 0em 2rem;
 }
 .card-info{
     display: flex;
